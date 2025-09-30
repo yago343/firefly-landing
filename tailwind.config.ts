@@ -19,6 +19,26 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        /* Cores principais do design system */
+        bg: "hsl(var(--bg))",
+        surface: "hsl(var(--surface))",
+        "surface-2": "hsl(var(--surface-2))",
+        text: "hsl(var(--text))",
+        muted: "hsl(var(--muted))",
+        
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          strong: "hsl(var(--brand-strong))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          strong: "hsl(var(--accent-strong))",
+        },
+        
+        graphite: "hsl(var(--graphite))",
+        stroke: "hsl(var(--stroke))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -27,36 +47,30 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+      },
+      
+      backgroundImage: {
+        'gradient-brand-accent': 'var(--gradient-brand-accent)',
+        'gradient-duotone': 'var(--gradient-duotone)',
+        'gradient-surface': 'var(--gradient-surface)',
+        'dotgrid': 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 1px)',
+      },
+      
+      backgroundSize: {
+        'dotgrid': '18px 18px',
+      },
+      
+      boxShadow: {
+        'glow-brand': 'var(--glow-brand)',
+        'glow-accent': 'var(--glow-accent)',
+        'glow-mixed': 'var(--glow-mixed)',
+        'glass': '0 14px 34px hsl(var(--shadow) / 0.38)',
+        'glass-hover': '0 22px 50px hsl(var(--shadow) / 0.45)',
+        'deep': '0 20px 60px hsl(var(--shadow) / 0.4)',
+      },
+      
+      backdropBlur: {
+        'glass': '8px',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +79,37 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0", opacity: "0" },
+          to: { height: "var(--radix-accordion-content-height)", opacity: "1" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)", opacity: "1" },
+          to: { height: "0", opacity: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0.95)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { filter: "brightness(1)" },
+          "50%": { filter: "brightness(1.2)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.3s ease-out",
+        "scale-in": "scale-in 0.2s ease-out",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
       },
     },
   },
