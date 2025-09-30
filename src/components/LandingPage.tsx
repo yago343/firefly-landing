@@ -78,12 +78,21 @@ const LandingPage = () => {
         </div>
       )}
 
-      {/* Hero Section */}
+      {/* Hero Section com múltiplas luzes */}
       <section className="relative overflow-hidden bg-dotgrid bg-dotgrid min-h-screen flex items-center">
-        {/* Glows sobrepostos */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-brand/35 blur-3xl animate-float" />
-          <div className="absolute -bottom-40 -right-24 w-80 h-80 rounded-full bg-accent/25 blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+        {/* Múltiplos glows e luzes de fundo */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Glows principais maiores e mais intensos */}
+          <div className="absolute -top-40 -left-32 w-[600px] h-[600px] rounded-full bg-brand/40 blur-3xl animate-float" />
+          <div className="absolute -bottom-40 -right-32 w-[500px] h-[500px] rounded-full bg-accent/30 blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+          
+          {/* Luzes secundárias */}
+          <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full bg-brand/20 blur-2xl animate-glow-pulse" />
+          <div className="absolute bottom-1/3 left-1/3 w-60 h-60 rounded-full bg-accent/25 blur-2xl animate-glow-pulse" style={{ animationDelay: '2s' }} />
+          
+          {/* Raios de luz */}
+          <div className="absolute inset-0 bg-light-rays bg-light-rays opacity-30 animate-spin" style={{ animationDuration: '120s' }} />
+          <div className="absolute inset-0 bg-radial-glow bg-radial-glow" />
         </div>
         
         <div className="container relative max-w-6xl mx-auto px-6 py-20">
@@ -92,7 +101,7 @@ const LandingPage = () => {
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
                   Método{' '}
-                  <span className="bg-gradient-brand-accent bg-clip-text text-transparent">
+                  <span className="bg-gradient-text-glow bg-clip-text text-transparent animate-glow-pulse" style={{ textShadow: 'var(--glow-text)' }}>
                     Móveis de Ouro
                   </span>
                 </h1>
@@ -108,16 +117,17 @@ const LandingPage = () => {
                 <Button 
                   size="lg" 
                   onClick={() => setShowVSLModal(true)}
-                  className="bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-lg px-8 py-4 shadow-glow-brand hover:shadow-glow-mixed transition-all hover:-translate-y-1"
+                  className="bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-lg px-8 py-4 shadow-ultra-glow hover:shadow-glow-mixed transition-all hover:-translate-y-1 relative overflow-hidden group"
                 >
-                  <Play className="mr-2 h-5 w-5" />
-                  Assistir Apresentação
+                  <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <Play className="mr-2 h-5 w-5 relative z-10" />
+                  <span className="relative z-10">Assistir Apresentação</span>
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
                   onClick={scrollToOffer}
-                  className="border-accent text-accent hover:bg-accent hover:text-primary-foreground font-bold text-lg px-8 py-4"
+                  className="border-accent text-accent hover:bg-accent hover:text-primary-foreground font-bold text-lg px-8 py-4 shadow-glow-accent hover:shadow-glow-border transition-all"
                 >
                   Ver Oferta Completa
                 </Button>
@@ -125,13 +135,15 @@ const LandingPage = () => {
             </div>
             
             <div className="relative animate-scale-in" style={{ animationDelay: '0.3s' }}>
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border-2 border-transparent bg-gradient-brand-accent p-1">
-                <div className="w-full h-full rounded-3xl overflow-hidden bg-graphite">
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border-2 border-transparent bg-gradient-brand-accent p-1 shadow-ultra-glow">
+                <div className="w-full h-full rounded-3xl overflow-hidden bg-graphite relative">
                   <img 
                     src={heroImage} 
                     alt="Soldador profissional trabalhando com equipamentos de alta qualidade"
                     className="w-full h-full object-cover"
                   />
+                  {/* Overlay de luz sutil */}
+                  <div className="absolute inset-0 bg-gradient-glow opacity-20 pointer-events-none" />
                 </div>
               </div>
               <div className="absolute inset-0 rounded-3xl shadow-glow-mixed pointer-events-none" />
@@ -166,12 +178,20 @@ const LandingPage = () => {
         </div>
       )}
 
-      {/* Divisor */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-brand/45 via-accent/45 to-transparent my-16" />
+      {/* Divisor luminoso */}
+      <div className="relative w-full h-px my-16">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand/60 via-accent/60 to-transparent shadow-glow-text" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand/30 via-accent/30 to-transparent blur-sm" />
+      </div>
 
-      {/* Copy Emocional */}
-      <section className="py-20">
-        <div className="container max-w-4xl mx-auto px-6 space-y-8 text-center animate-fade-in">
+      {/* Copy Emocional com fundo luminoso */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Luzes de fundo para a seção */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-brand/10 blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-accent/8 blur-3xl" />
+        </div>
+        <div className="container max-w-4xl mx-auto px-6 space-y-8 text-center animate-fade-in relative z-10">
           <p className="text-xl leading-relaxed text-muted">
             Você já se perguntou como seria trabalhar com as próprias mãos, criando algo único e valioso, 
             enquanto constrói uma renda sólida para sua família?
@@ -190,18 +210,26 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Copy Lógica - Grid 3 colunas */}
-      <section className="py-20 bg-surface/50">
-        <div className="container max-w-6xl mx-auto px-6">
+      {/* Copy Lógica - Grid 3 colunas com luzes */}
+      <section className="py-20 bg-surface/60 relative overflow-hidden">
+        {/* Múltiplas luzes de fundo */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-0 w-72 h-72 rounded-full bg-brand/15 blur-3xl animate-glow-pulse" />
+          <div className="absolute bottom-1/3 right-0 w-64 h-64 rounded-full bg-accent/12 blur-3xl animate-glow-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-0 right-1/3 w-48 h-48 rounded-full bg-brand/8 blur-2xl" />
+        </div>
+        <div className="container max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* O que tem */}
-            <Card className="p-8 bg-gradient-surface border-stroke shadow-glass hover:shadow-glass-hover transition-all duration-300 hover:-translate-y-2">
-              <div className="space-y-6">
+            <Card className="p-8 bg-gradient-surface border-stroke shadow-glass hover:shadow-ultra-glow transition-all duration-300 hover:-translate-y-2 relative overflow-hidden group">
+              {/* Glow interno no hover */}
+              <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none" />
+              <div className="space-y-6 relative z-10">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-2xl bg-gradient-duotone">
+                  <div className="p-3 rounded-2xl bg-gradient-duotone shadow-glow-border">
                     <Wrench className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <h3 className="text-2xl font-bold">O que tem</h3>
+                  <h3 className="text-2xl font-bold" style={{ textShadow: '0 0 20px hsl(var(--brand) / 0.3)' }}>O que tem</h3>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
@@ -233,13 +261,14 @@ const LandingPage = () => {
             </Card>
 
             {/* O que faz */}
-            <Card className="p-8 bg-gradient-surface border-stroke shadow-glass hover:shadow-glass-hover transition-all duration-300 hover:-translate-y-2">
-              <div className="space-y-6">
+            <Card className="p-8 bg-gradient-surface border-stroke shadow-glass hover:shadow-ultra-glow transition-all duration-300 hover:-translate-y-2 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none" />
+              <div className="space-y-6 relative z-10">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-2xl bg-gradient-duotone">
+                  <div className="p-3 rounded-2xl bg-gradient-duotone shadow-glow-border">
                     <Target className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <h3 className="text-2xl font-bold">O que faz</h3>
+                  <h3 className="text-2xl font-bold" style={{ textShadow: '0 0 20px hsl(var(--accent) / 0.3)' }}>O que faz</h3>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
@@ -271,13 +300,14 @@ const LandingPage = () => {
             </Card>
 
             {/* Como funciona */}
-            <Card className="p-8 bg-gradient-surface border-stroke shadow-glass hover:shadow-glass-hover transition-all duration-300 hover:-translate-y-2">
-              <div className="space-y-6">
+            <Card className="p-8 bg-gradient-surface border-stroke shadow-glass hover:shadow-ultra-glow transition-all duration-300 hover:-translate-y-2 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none" />
+              <div className="space-y-6 relative z-10">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-2xl bg-gradient-duotone">
+                  <div className="p-3 rounded-2xl bg-gradient-duotone shadow-glow-border">
                     <Clock className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <h3 className="text-2xl font-bold">Como funciona</h3>
+                  <h3 className="text-2xl font-bold" style={{ textShadow: '0 0 20px hsl(var(--brand) / 0.3)' }}>Como funciona</h3>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -461,10 +491,11 @@ const LandingPage = () => {
                   
                   <Button 
                     size="lg" 
-                    className="w-full bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-lg py-4 shadow-glow-brand hover:shadow-glow-mixed transition-all hover:-translate-y-1"
+                    className="w-full bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-lg py-4 shadow-ultra-glow hover:shadow-glow-mixed transition-all hover:-translate-y-1 relative overflow-hidden group"
                   >
-                    <DollarSign className="mr-2 h-5 w-5" />
-                    QUERO COMEÇAR AGORA
+                    <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <DollarSign className="mr-2 h-5 w-5 relative z-10" />
+                    <span className="relative z-10">QUERO COMEÇAR AGORA</span>
                   </Button>
                   
                   <p className="text-xs text-muted/60">

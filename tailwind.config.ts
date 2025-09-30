@@ -53,20 +53,29 @@ export default {
         'gradient-brand-accent': 'var(--gradient-brand-accent)',
         'gradient-duotone': 'var(--gradient-duotone)',
         'gradient-surface': 'var(--gradient-surface)',
-        'dotgrid': 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 1px)',
+        'gradient-glow': 'var(--gradient-glow)',
+        'gradient-text-glow': 'var(--gradient-text-glow)',
+        'dotgrid': 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 1px)',
+        'light-rays': 'conic-gradient(from 0deg at 50% 50%, transparent, hsl(var(--brand) / 0.1), transparent, hsl(var(--accent) / 0.1), transparent)',
+        'radial-glow': 'radial-gradient(ellipse at center, hsl(var(--brand) / 0.15), hsl(var(--accent) / 0.1), transparent)',
       },
       
       backgroundSize: {
-        'dotgrid': '18px 18px',
+        'dotgrid': '20px 20px',
+        'light-rays': '400px 400px',
+        'radial-glow': '800px 600px',
       },
       
       boxShadow: {
         'glow-brand': 'var(--glow-brand)',
         'glow-accent': 'var(--glow-accent)',
         'glow-mixed': 'var(--glow-mixed)',
-        'glass': '0 14px 34px hsl(var(--shadow) / 0.38)',
-        'glass-hover': '0 22px 50px hsl(var(--shadow) / 0.45)',
-        'deep': '0 20px 60px hsl(var(--shadow) / 0.4)',
+        'glow-text': 'var(--glow-text)',
+        'glow-border': 'var(--glow-border)',
+        'glass': '0 14px 34px hsl(var(--shadow) / 0.5), 0 0 40px hsl(var(--brand) / 0.1)',
+        'glass-hover': '0 22px 50px hsl(var(--shadow) / 0.6), 0 0 60px hsl(var(--brand) / 0.2)',
+        'deep': '0 20px 60px hsl(var(--shadow) / 0.6), 0 0 80px hsl(var(--accent) / 0.2)',
+        'ultra-glow': '0 0 100px hsl(var(--brand) / 0.6), 0 0 200px hsl(var(--accent) / 0.4), 0 0 300px hsl(var(--brand) / 0.2)',
       },
       
       backdropBlur: {
