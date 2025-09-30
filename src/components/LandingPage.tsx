@@ -49,26 +49,26 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-bg text-text">
-      {/* Alerta sticky no topo */}
+      {/* Alerta fixo no topo */}
       {showAlert && (
-        <div className="sticky top-0 z-50 w-full bg-gradient-brand-accent p-4">
-          <div className="container flex items-center justify-between max-w-6xl mx-auto">
-            <div className="flex items-center gap-2 text-primary-foreground font-semibold">
-              <AlertTriangle className="h-5 w-5" />
-              <span>⚠ Vagas limitadas – última chance hoje</span>
+        <div className="fixed top-0 left-0 right-0 z-50 w-full bg-gradient-brand-accent p-3 md:p-4 shadow-glow-mixed">
+          <div className="container flex flex-col sm:flex-row items-center justify-between gap-3 max-w-6xl mx-auto">
+            <div className="flex items-center gap-2 text-primary-foreground font-semibold text-sm md:text-base">
+              <AlertTriangle className="h-4 w-4 md:h-5 md:w-5 flex-shrink-0" />
+              <span className="text-center sm:text-left">⚠ Vagas limitadas – última chance hoje</span>
             </div>
             <div className="flex items-center gap-3">
               <Button 
                 variant="secondary" 
                 size="sm"
                 onClick={scrollToOffer}
-                className="bg-white/20 hover:bg-white/30 border-white/30 text-white font-bold"
+                className="bg-white/20 hover:bg-white/30 border-white/30 text-white font-bold text-sm px-4 py-2"
               >
                 Garanta sua vaga
               </Button>
               <button 
                 onClick={dismissAlert}
-                className="text-white/80 hover:text-white p-1"
+                className="text-white/80 hover:text-white p-1 flex-shrink-0"
                 aria-label="Fechar alerta"
               >
                 <X className="h-4 w-4" />
@@ -79,7 +79,7 @@ const LandingPage = () => {
       )}
 
       {/* Hero Section com múltiplas luzes */}
-      <section className="relative overflow-hidden bg-dotgrid bg-dotgrid min-h-screen flex items-center">
+      <section className="relative overflow-hidden bg-dotgrid bg-dotgrid min-h-screen flex items-center" style={{ paddingTop: showAlert ? '80px' : '0' }}>
         {/* Múltiplos glows e luzes de fundo */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Glows principais maiores e mais intensos */}
@@ -95,29 +95,29 @@ const LandingPage = () => {
           <div className="absolute inset-0 bg-radial-glow bg-radial-glow" />
         </div>
         
-        <div className="container relative max-w-6xl mx-auto px-6 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-fade-in">
+        <div className="container relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 lg:space-y-8 animate-fade-in text-center lg:text-left">
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
                   Método{' '}
-                  <span className="bg-gradient-text-glow bg-clip-text text-transparent animate-glow-pulse" style={{ textShadow: 'var(--glow-text)' }}>
+                  <span className="bg-gradient-text-glow bg-clip-text text-transparent animate-glow-pulse block sm:inline" style={{ textShadow: 'var(--glow-text)' }}>
                     Móveis de Ouro
                   </span>
                 </h1>
-                <p className="text-xl md:text-2xl text-muted leading-relaxed">
+                <p className="text-lg sm:text-xl md:text-2xl text-muted leading-relaxed">
                   Habilidade real, renda própria e tempo com a família.
                 </p>
-                <p className="text-lg text-muted/80">
+                <p className="text-base sm:text-lg text-muted/80">
                   Aprenda do zero a transformar suas mãos em liberdade — mesmo sem experiência.
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Button 
                   size="lg" 
                   onClick={() => setShowVSLModal(true)}
-                  className="bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-lg px-8 py-4 shadow-ultra-glow hover:shadow-glow-mixed transition-all hover:-translate-y-1 relative overflow-hidden group"
+                  className="bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-ultra-glow hover:shadow-glow-mixed transition-all hover:-translate-y-1 relative overflow-hidden group w-full sm:w-auto"
                 >
                   <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-opacity" />
                   <Play className="mr-2 h-5 w-5 relative z-10" />
@@ -127,15 +127,15 @@ const LandingPage = () => {
                   variant="outline" 
                   size="lg"
                   onClick={scrollToOffer}
-                  className="border-accent text-accent hover:bg-accent hover:text-primary-foreground font-bold text-lg px-8 py-4 shadow-glow-accent hover:shadow-glow-border transition-all"
+                  className="border-accent text-accent hover:bg-accent hover:text-primary-foreground font-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-glow-accent hover:shadow-glow-border transition-all w-full sm:w-auto"
                 >
                   Ver Oferta Completa
                 </Button>
               </div>
             </div>
             
-            <div className="relative animate-scale-in" style={{ animationDelay: '0.3s' }}>
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border-2 border-transparent bg-gradient-brand-accent p-1 shadow-ultra-glow">
+            <div className="relative animate-scale-in order-first lg:order-last" style={{ animationDelay: '0.3s' }}>
+              <div className="relative aspect-[4/5] max-w-md mx-auto lg:max-w-none rounded-3xl overflow-hidden border-2 border-transparent bg-gradient-brand-accent p-1 shadow-ultra-glow">
                 <div className="w-full h-full rounded-3xl overflow-hidden bg-graphite relative">
                   <img 
                     src={heroImage} 
@@ -191,20 +191,20 @@ const LandingPage = () => {
           <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-brand/10 blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-accent/8 blur-3xl" />
         </div>
-        <div className="container max-w-4xl mx-auto px-6 space-y-8 text-center animate-fade-in relative z-10">
-          <p className="text-xl leading-relaxed text-muted">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6 space-y-6 sm:space-y-8 text-center animate-fade-in relative z-10">
+          <p className="text-lg sm:text-xl leading-relaxed text-muted">
             Você já se perguntou como seria trabalhar com as próprias mãos, criando algo único e valioso, 
             enquanto constrói uma renda sólida para sua família?
           </p>
-          <p className="text-xl leading-relaxed text-muted">
+          <p className="text-lg sm:text-xl leading-relaxed text-muted">
             O Método Móveis de Ouro não é apenas um curso. É a sua ponte entre onde você está agora 
             e a liberdade financeira que sempre sonhou.
           </p>
-          <p className="text-xl leading-relaxed text-muted">
+          <p className="text-lg sm:text-xl leading-relaxed text-muted">
             Mesmo que você nunca tenha pegado em uma ferramenta, você pode dominar as técnicas que 
             transformam madeira comum em móveis sob medida de alto valor.
           </p>
-          <p className="text-xl leading-relaxed text-muted font-semibold">
+          <p className="text-lg sm:text-xl leading-relaxed text-muted font-semibold">
             Chegou a hora de transformar suas mãos em sua maior fonte de renda.
           </p>
         </div>
@@ -218,8 +218,8 @@ const LandingPage = () => {
           <div className="absolute bottom-1/3 right-0 w-64 h-64 rounded-full bg-accent/12 blur-3xl animate-glow-pulse" style={{ animationDelay: '1s' }} />
           <div className="absolute top-0 right-1/3 w-48 h-48 rounded-full bg-brand/8 blur-2xl" />
         </div>
-        <div className="container max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-3 gap-8">
+        <div className="container max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* O que tem */}
             <Card className="p-8 bg-gradient-surface border-stroke shadow-glass hover:shadow-ultra-glow transition-all duration-300 hover:-translate-y-2 relative overflow-hidden group">
               {/* Glow interno no hover */}
@@ -342,12 +342,12 @@ const LandingPage = () => {
       </section>
 
       {/* Autoridade + Provas Sociais */}
-      <section className="py-20">
-        <div className="container max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-16 sm:py-20">
+        <div className="container max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Autoridade */}
-            <div className="space-y-6 animate-fade-in">
-              <div className="relative w-64 h-64 mx-auto lg:mx-0">
+            <div className="space-y-6 animate-fade-in text-center lg:text-left">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 mx-auto lg:mx-0">
                 <div className="absolute inset-0 rounded-full bg-gradient-brand-accent p-1">
                   <div className="w-full h-full rounded-full bg-graphite flex items-center justify-center">
                     <div className="w-32 h-32 rounded-full bg-muted/20 flex items-center justify-center">
@@ -358,8 +358,8 @@ const LandingPage = () => {
                 <div className="absolute inset-0 rounded-full shadow-glow-mixed pointer-events-none" />
               </div>
               <div className="text-center lg:text-left">
-                <h3 className="text-3xl font-bold mb-4">Mestre João Silva</h3>
-                <p className="text-lg text-muted leading-relaxed">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-4">Mestre João Silva</h3>
+                <p className="text-base sm:text-lg text-muted leading-relaxed">
                   Com mais de 15 anos criando móveis sob medida, João transformou sua pequena oficina 
                   em um negócio que gera mais de R$ 50.000 por mês. Agora ele quer te ensinar 
                   exatamente como fazer o mesmo.
@@ -372,12 +372,12 @@ const LandingPage = () => {
 
             {/* Depoimentos */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-center mb-8">O que nossos alunos dizem</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8">O que nossos alunos dizem</h3>
               <div className="space-y-4">
-                <Card className="p-6 bg-gradient-surface border-stroke">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-muted/20 flex-shrink-0" />
-                    <div className="flex-1">
+                <Card className="p-4 sm:p-6 bg-gradient-surface border-stroke">
+                  <div className="flex flex-col sm:flex-row items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-muted/20 flex-shrink-0 mx-auto sm:mx-0" />
+                    <div className="flex-1 text-center sm:text-left">
                       <div className="flex items-center gap-1 mb-2">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="h-4 w-4 fill-brand text-brand" />
@@ -392,10 +392,10 @@ const LandingPage = () => {
                   </div>
                 </Card>
 
-                <Card className="p-6 bg-gradient-surface border-stroke">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-muted/20 flex-shrink-0" />
-                    <div className="flex-1">
+                <Card className="p-4 sm:p-6 bg-gradient-surface border-stroke">
+                  <div className="flex flex-col sm:flex-row items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-muted/20 flex-shrink-0 mx-auto sm:mx-0" />
+                    <div className="flex-1 text-center sm:text-left">
                       <div className="flex items-center gap-1 mb-2">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="h-4 w-4 fill-brand text-brand" />
@@ -409,10 +409,10 @@ const LandingPage = () => {
                   </div>
                 </Card>
 
-                <Card className="p-6 bg-gradient-surface border-stroke">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-muted/20 flex-shrink-0" />
-                    <div className="flex-1">
+                <Card className="p-4 sm:p-6 bg-gradient-surface border-stroke">
+                  <div className="flex flex-col sm:flex-row items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-muted/20 flex-shrink-0 mx-auto sm:mx-0" />
+                    <div className="flex-1 text-center sm:text-left">
                       <div className="flex items-center gap-1 mb-2">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="h-4 w-4 fill-brand text-brand" />
@@ -432,21 +432,21 @@ const LandingPage = () => {
       </section>
 
       {/* Oferta + Preço */}
-      <section id="comprar" className="py-20 bg-surface/30">
-        <div className="container max-w-4xl mx-auto px-6">
+      <section id="comprar" className="py-16 sm:py-20 bg-surface/30">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
               Tudo que você vai receber
             </h2>
-            <p className="text-xl text-muted">
+            <p className="text-lg sm:text-xl text-muted">
               Um método completo para você dominar a arte da marcenaria
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
             {/* Lista do que vai receber */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold mb-6">Conteúdo Completo:</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-6">Conteúdo Completo:</h3>
               <div className="space-y-3">
                 {[
                   "Módulo 1: Fundamentos da Marcenaria",
@@ -461,25 +461,25 @@ const LandingPage = () => {
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <CheckCircle className="h-5 w-5 text-brand flex-shrink-0" />
-                    <span className="text-muted">{item}</span>
+                    <span className="text-sm sm:text-base text-muted">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Card de Preço */}
-            <Card className="relative p-8 bg-gradient-surface border-2 border-transparent bg-clip-padding">
+            <Card className="relative p-6 sm:p-8 bg-gradient-surface border-2 border-transparent bg-clip-padding order-first lg:order-last">
               <div className="absolute inset-0 bg-gradient-brand-accent rounded-lg opacity-50 blur-sm pointer-events-none" />
-              <div className="relative bg-gradient-surface rounded-lg p-8 border border-stroke">
+              <div className="relative bg-gradient-surface rounded-lg p-6 sm:p-8 border border-stroke">
                 <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-brand-accent text-primary-foreground font-bold px-4 py-1">
                   Acesso Imediato
                 </Badge>
                 
                 <div className="text-center space-y-6">
                   <div>
-                    <p className="text-muted/60 line-through text-xl">De R$ 497,00</p>
-                    <p className="text-5xl font-black text-brand">R$ 47,00</p>
-                    <p className="text-muted">Pagamento único</p>
+                    <p className="text-muted/60 line-through text-lg sm:text-xl">De R$ 497,00</p>
+                    <p className="text-4xl sm:text-5xl font-black text-brand">R$ 47,00</p>
+                    <p className="text-sm sm:text-base text-muted">Pagamento único</p>
                   </div>
                   
                   <div className="space-y-2 text-sm text-muted">
@@ -491,7 +491,7 @@ const LandingPage = () => {
                   
                   <Button 
                     size="lg" 
-                    className="w-full bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-lg py-4 shadow-ultra-glow hover:shadow-glow-mixed transition-all hover:-translate-y-1 relative overflow-hidden group"
+                    className="w-full bg-brand hover:bg-brand-strong text-primary-foreground font-bold text-base sm:text-lg py-3 sm:py-4 shadow-ultra-glow hover:shadow-glow-mixed transition-all hover:-translate-y-1 relative overflow-hidden group"
                   >
                     <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-opacity" />
                     <DollarSign className="mr-2 h-5 w-5 relative z-10" />
@@ -509,16 +509,16 @@ const LandingPage = () => {
       </section>
 
       {/* Garantia */}
-      <section className="py-20">
-        <div className="container max-w-4xl mx-auto px-6">
-          <Card className="p-8 bg-gradient-surface border-stroke text-center relative overflow-hidden">
+      <section className="py-16 sm:py-20">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6">
+          <Card className="p-6 sm:p-8 bg-gradient-surface border-stroke text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-duotone opacity-5 pointer-events-none" />
             <div className="relative">
               <div className="w-20 h-20 bg-gradient-duotone rounded-full flex items-center justify-center mx-auto mb-6">
                 <Shield className="h-10 w-10 text-primary-foreground" />
               </div>
-              <h3 className="text-3xl font-bold mb-4">Garantia de 7 dias</h3>
-              <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Garantia de 7 dias</h3>
+              <p className="text-base sm:text-lg text-muted leading-relaxed max-w-2xl mx-auto">
                 Experimente o Método Móveis de Ouro por 7 dias. Se não ficar completamente satisfeito, 
                 devolvemos 100% do seu investimento. Sem perguntas, sem complicação.
               </p>
@@ -531,18 +531,18 @@ const LandingPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-surface/50">
-        <div className="container max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-12">
+      <section className="py-16 sm:py-20 bg-surface/50">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
             Perguntas Frequentes
           </h2>
           
           <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="bg-gradient-surface border-stroke rounded-lg px-6">
-              <AccordionTrigger className="text-left font-semibold hover:text-brand">
+            <AccordionItem value="item-1" className="bg-gradient-surface border-stroke rounded-lg px-4 sm:px-6">
+              <AccordionTrigger className="text-left font-semibold hover:text-brand text-sm sm:text-base">
                 Preciso ter experiência prévia em marcenaria?
               </AccordionTrigger>
-              <AccordionContent className="text-muted">
+              <AccordionContent className="text-muted text-sm sm:text-base">
                 Não! O método foi desenvolvido especificamente para iniciantes. Começamos do absoluto zero 
                 e te levamos até o nível profissional, passo a passo.
               </AccordionContent>
@@ -601,11 +601,11 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* CTA Sticky Mobile */}
+      {/* CTA Sticky Mobile - Ajustado para não sobrepor o alerta */}
       {showStickyCTA && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 p-4 bg-gradient-brand-accent border-t border-stroke lg:hidden">
+        <div className="fixed bottom-0 left-0 right-0 z-40 p-3 sm:p-4 bg-gradient-brand-accent border-t border-stroke lg:hidden">
           <Button 
-            className="w-full bg-brand hover:bg-brand-strong text-primary-foreground font-bold py-4 shadow-glow-brand"
+            className="w-full bg-brand hover:bg-brand-strong text-primary-foreground font-bold py-3 sm:py-4 text-sm sm:text-base shadow-glow-brand"
             onClick={scrollToOffer}
           >
             COMEÇAR AGORA - R$ 47,00
@@ -614,16 +614,16 @@ const LandingPage = () => {
       )}
 
       {/* Footer */}
-      <footer className="py-12 bg-graphite border-t border-stroke">
-        <div className="container max-w-6xl mx-auto px-6">
+      <footer className="py-8 sm:py-12 bg-graphite border-t border-stroke">
+        <div className="container max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-brand-accent bg-clip-text text-transparent">
+            <h3 className="text-xl sm:text-2xl font-bold bg-gradient-brand-accent bg-clip-text text-transparent">
               Método Móveis de Ouro
             </h3>
-            <p className="text-muted/60">
+            <p className="text-sm sm:text-base text-muted/60">
               Transformando vidas através da marcenaria profissional
             </p>
-            <p className="text-sm text-muted/40">
+            <p className="text-xs sm:text-sm text-muted/40">
               © 2024 Método Móveis de Ouro. Todos os direitos reservados.
             </p>
           </div>
